@@ -17,4 +17,25 @@ if(!file_exists("./db.php")){
     <?
     exit;
 }
+
+// 설정변수 초기화
+$_cfg = array();
+
+// DB 테이블 정의
+$_cfg['member_table'] = "bd__member";
+$_cfg['config_table'] = "bd__board_config";
+$_cfg['board_table'] = "bd__board";
+$_cfg['comment_table'] = "bd__comment";
+$_cfg['history_table'] = "bd__view_history";
+
+// db.php 파일 인클루드
+include ("./db.php");
+// 사용자 정의 함수 인클루드
+include ("./inc/lib.php");
+
+// 세션사용은 위한 초기화
+session_start();
+
+// DB 연결
+$connect = sql_connect($mysql_host, $mysql_user, $mysql_password, $mysql_db);
 ?>
